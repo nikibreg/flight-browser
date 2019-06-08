@@ -8,7 +8,7 @@ async def result(flights):
     return await render_template('result.html', flights=flights, len=len, datetime=datetime)
 
 
-@app.route('/search', methods = ['GET', 'POST', 'PATCH', 'PUT', 'DELETE'])
+@app.route('/', methods = ['GET', 'POST', 'PATCH', 'PUT', 'DELETE'])
 async def search():
     if request.method == 'GET':
         return await render_template('search.html')
