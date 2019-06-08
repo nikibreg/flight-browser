@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='result.css') }}">
+</head>
+
+<body>
+    <div class="wrapper">
+        {% for flight in flights %}
+        <div class="flight-card">
+            <div class="flight-card--header">
+                <div class="flight-card--header-logo">
+                    <img />
+                </div>
+                <div class="flight-card--header-details">
+                    <div class="details-passenger">
+                        <span class="detail--title">
+                            Airlines
+                        </span>
+                        <span class="detail--text">
+                            {{ "".join(flight.airlines) }}
+                        </span>
+                    </div>
+                    <div class="details-depart">
+                        <span class="detail--title">
+                            Departs
+                        </span>
+                        <span class="detail--text">
+                            {{ datetime.datetime.fromtimestamp(flight.dTime) }}
+                        </span>
+                    </div>
+                    <div class="details-arrive">
+                        <span class="detail--title">
+                            Arrives
+                        </span>
+                        <span class="detail--text">
+                                {{ datetime.datetime.fromtimestamp(flight.aTime) }}
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="flight-card--details">
+                <div class="bc-from">
+                    <span class="detail-code">
+                            {{ flight.countryFrom.code }}
+                    </span>
+                    <span class="detail-city">
+                            {{ flight.countryFrom.name }}
+                    </span>
+                </div>
+                <div class="bc-plane">
+                    <img />
+                </div>
+                <div class="bc-to">
+                    <span class="detail-code">
+                            {{ flight.countryTo.code }}
+                    </span>
+                    <span class="detail-city">
+                            {{ flight.countryTo.name }}
+                    </span>
+                </div>
+                <div class="flight-card-details--text">
+                    <div class="text-left">
+                        <span class="text-hline">
+                            Price
+                        </span>
+                        <span class="text-actual">
+                                {{ flight.conversion.EUR }} EUR
+                        </span>
+                    </div>
+                    <div class="text-middle">
+                        <span class="text-hline">
+                            Flight Duration
+                        </span>
+                        <span class="text-actual">
+                                {{ flight.fly_duration }}
+                        </span>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-hline">
+                            Tranfers
+                        </span>
+                        <span class="text-actual mint">
+                            {{ len(flight.transfers) }}
+                        </span>
+                    </div>
+                </div>
+                <div class="flight-card-details--admin">
+                    <div class="admin-left">
+                        {{ flight.cityFrom }}
+                    </div>
+                    <div class="admin-right">
+                        {{ flight.cityTo }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,2 @@
+Quart==0.9.1
+requests==2.22.0
