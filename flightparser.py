@@ -10,11 +10,14 @@ def country(name):
                 return "GE"
 
 async def parse(from_country, to_country, depart_date, return_date):
-        requestURL = "https://api.skypicker.com/flights?fly_from={}&fly_to={}&date_from={}&date_to={}".format(from_country, to_country, depart_date, return_date)
-        print(requestURL)
-        data = requests.get(requestURL)
-        data = data.json()["data"]
-        return data
+        try:
+                requestURL = "https://api.skypicker.com/flights?fly_from={}&fly_to={}&date_from={}&date_to={}".format(from_country, to_country, depart_date, return_date)
+                print(requestURL)
+                data = requests.get(requestURL)
+                data = data.json()["data"]
+                return data
+        except:
+                return []
 
 async def getFlights(d):
         # from_country
