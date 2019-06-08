@@ -1,8 +1,8 @@
 # University class project built using Flask (Quart)
 
-![1560015095649](https://raw.githubusercontent.com/nikibreg/flight-browser/branch/img/1560015095649.png)
+![1560015095649](https://raw.githubusercontent.com/nikibreg/flight-browser/master/img/1560015095649.png)
 
-![1560015487038](https://raw.githubusercontent.com/nikibreg/flight-browser/branch/img/1560015487038.png)
+![1560015487038](https://raw.githubusercontent.com/nikibreg/flight-browser/master/img/1560015487038.png)
 
 To run this project follow these steps, but make sure you have Python 3 and pip installed first:
 
