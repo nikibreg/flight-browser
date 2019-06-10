@@ -2,7 +2,7 @@ from quart import Quart, websocket, request, jsonify, render_template, redirect,
 from flightparser import getFlights
 import datetime
 
-app = Quart('app', template_folder='templates')
+app = Quart(__name__, template_folder='templates')
 
 async def result(flights):
     return await render_template('result.html', flights=flights, len=len, datetime=datetime)
@@ -20,4 +20,5 @@ async def search():
         flights = await getFlights(data)
         return await result(flights)
 
-app.run()
+if __name__ == "__main__":
+    app.run()
