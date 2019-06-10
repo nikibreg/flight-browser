@@ -1,2 +1,2 @@
-Quart==0.9.1
+Quart==0.6.13
 requests==2.22.0
