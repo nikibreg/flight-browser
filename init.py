@@ -20,5 +20,4 @@ async def search():
         flights = await getFlights(data)
         return await result(flights)
 
-
 app.run()
